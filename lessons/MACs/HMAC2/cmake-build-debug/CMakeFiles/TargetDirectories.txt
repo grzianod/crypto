@@ -1,3 +1,0 @@
-/home/kali/CLionProjects/crypto/MACs/HMAC2/cmake-build-debug/CMakeFiles/hmac2.dir
-/home/kali/CLionProjects/crypto/MACs/HMAC2/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/kali/CLionProjects/crypto/MACs/HMAC2/cmake-build-debug/CMakeFiles/rebuild_cache.dir

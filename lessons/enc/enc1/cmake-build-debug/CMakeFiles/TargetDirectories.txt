@@ -1,3 +1,0 @@
-/home/kali/CLionProjects/crypto/enc/enc1/cmake-build-debug/CMakeFiles/enc1.dir
-/home/kali/CLionProjects/crypto/enc/enc1/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/kali/CLionProjects/crypto/enc/enc1/cmake-build-debug/CMakeFiles/rebuild_cache.dir

@@ -1,3 +1,0 @@
-/home/kali/CLionProjects/crypto/rand/rand1/cmake-build-debug/CMakeFiles/rand1.dir
-/home/kali/CLionProjects/crypto/rand/rand1/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/kali/CLionProjects/crypto/rand/rand1/cmake-build-debug/CMakeFiles/rebuild_cache.dir
