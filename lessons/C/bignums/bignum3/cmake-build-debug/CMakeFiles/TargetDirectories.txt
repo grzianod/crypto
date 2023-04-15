@@ -1,0 +1,3 @@
+/home/kali/CLionProjects/crypto/bignums/bignum3/cmake-build-debug/CMakeFiles/bignum3.dir
+/home/kali/CLionProjects/crypto/bignums/bignum3/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/kali/CLionProjects/crypto/bignums/bignum3/cmake-build-debug/CMakeFiles/rebuild_cache.dir
