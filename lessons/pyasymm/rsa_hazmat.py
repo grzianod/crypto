@@ -1,5 +1,5 @@
 from cryptography.hazmat.backends import default_backend
-from cryptography.hazmat.primitives import hashes
+from cryptography.hazmat.primitives import hashes, constant_time
 from cryptography.hazmat.primitives.asymmetric import rsa, padding
 
 private_key = rsa.generate_private_key(
