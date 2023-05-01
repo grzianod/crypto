@@ -46,7 +46,7 @@ if __name__ == '__main__':
 
     print("----------------------")
     p_prime_15 = 197
-    c_second_15 = p_prime_15 ^ 2 # 2 is the padding value that the oracle is expecting to be there
+    c_second_15 = p_prime_15 ^ 2  # 2 is the padding value that the oracle is expecting to be there
     tomodify_block[byte_index] = c_second_15
     byte_index -= 1
     c14 = tomodify_block[byte_index]
@@ -70,7 +70,27 @@ if __name__ == '__main__':
 
     print("----------------------")
     p_prime_14 = 89
-    # continue
+    c_second_14 = p_prime_14 ^ 3  # 3 is the padding value that the oracle is expecting to be there
+    tomodify_block[byte_index] = c_second_14
+    byte_index -= 1
+    c13 = tomodify_block[byte_index]
+
+    for c_prime_13 in range(256):
+        tomodify_block[byte_index] = c_prime_13
+        tosend = initial_part + tomodify_block + last_part
+
+        server = remote(HOST, PORT)
+        server.send(iv)
+        server.send(tosend)
+        response = server.recv(1024)
+        server.close()
+
+        if response == b"OK":
+            print("c_prime_13: " + str(c_prime_13))
+            p_prime_13 = c_prime_13 ^ 3  # 1 is the padding value that the oracle is expecting to be there
+            p13 = p_prime_13 ^ c13
+            print("p_prime_13: " + str(p_prime_13))
+            print("p13: " + str(p13))
 
 
 

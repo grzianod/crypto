@@ -53,7 +53,7 @@ if __name__ == '__main__':
 
     secret = b''
     for i in range(AES.block_size):
-        pad = (AES.block_size - i ) * b'A'
+        pad = (AES.block_size - i) * b'A'
         for guess in string.printable:
             message = postfix + secret + guess.encode() + pad
             print(message)
