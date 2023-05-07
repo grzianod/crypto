@@ -13,21 +13,30 @@ block_size = 16
 
 if __name__ == '__main__':
 
-    prefix= b"0"*4
+    print(AES.block_size)
     secret = b""
     server = remote(HOST, PORT)
-    server.recv(1024)
+    server.recvline()
+    server.recvline()
+    server.recvline()
+    server.recvline()
 
-    for i in range(block_size):
-        guess = b'0' * (block_size - (i+1))
-        for c in string.printable:
-            server.sendline(b"enc")
-            tampered = bytes(guess + c.encode() + guess + c.encode())
-            print(tampered)
-            sleep(.5)
-            server.recv(10)
-            server.sendline(tampered)
-            sleep(.5)
-            print(server.recv(1024))
+    for n_blocks in reversed(range(3)):
+        prefix = b"0" * n_blocks * block_size
+        for i in range(block_size):
+            guess = b"0" * (block_size - (i+1))
+            for c in string.printable:
+                server.sendafter(b"> ", b"enc\n")
+                tampered = bytes(prefix + guess + secret + c.encode() + guess)
+                print("(" + str(n_blocks) + ", " + str(i) + ", " + c + "): " + str(tampered))
+                server.sendafter(b"> ", tampered.hex().encode() + b"\n")
+                output = server.recvline().decode()
+                tamp = output[4*block_size:6*block_size]
+                real = output[(3+2-n_blocks)*2*block_size:(4+2-n_blocks)*2*block_size]
 
+                if real == tamp:
+                    secret += c.encode()
+                    break
+
+    print("\n\nflag: " + secret.decode())
     server.close()
