@@ -22,9 +22,9 @@ if __name__ == '__main__':
     server.recvline()
 
     for n_blocks in reversed(range(3)):
-        prefix = b"0" * n_blocks * block_size
+        prefix = b"-" * n_blocks * block_size
         for i in range(block_size):
-            guess = b"0" * (block_size - (i+1))
+            guess = b"-" * (block_size - (i+1))
             for c in string.printable:
                 server.sendafter(b"> ", b"enc\n")
                 tampered = bytes(prefix + guess + secret + c.encode() + guess)
